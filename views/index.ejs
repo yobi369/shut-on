@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shuton Photography</title>
+    <link rel="stylesheet" href="/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaVtbB0G2smIN5C6TCXqPQKp/7Fu6n76x5Jx2KraRhgwyV6aD8pA1NsWv+9" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Section */
+        .nav-section {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #fff;
+        }
+
+        .brand-logo {
+            margin-right: 20px;
+        }
+
+        .brand-logo img {
+            width: 110px;
+            height: 80px;
+        }
+
+        .nav-section ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-section ul li {
+            margin: 0 20px;
+        }
+
+        .nav-section ul a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-section ul a:hover {
+            color: #ff6600;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            height: 80vh;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 80vh;
+            object-fit: cover;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #080808;
+            text-align: center;
+        }
+
+        .carousel-overlay h1 {
+            font-size: 4rem;
+            animation: flash 3s infinite;
+        }
+
+        .carousel-overlay p.lead {
+            font-size: 1.5rem;
+            animation: flash 3s infinite 0.5s;
+        }
+
+        @keyframes flash {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .section-one {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+        }
+
+        .sec-one-left img {
+            width: 600px;
+            height: 750px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .work-content {
+            margin-top: -80px; /* Move it up by 20 pixels */
+            margin-left: 20px; /* Move it right by 20 pixels */
+
+        }
+        
+        .work-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .work-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .work-imgs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .work-img-1, .work-img-2 {
+            width: 48%;
+            height: 300px;
+        }
+
+        .work-img-1 img, .work-img-2 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        
+    /* Testimonials Section */
+    .testimonials {
+        padding: 50px 10%;
+        background-color: #fff;
+        text-align: center;
+    }
+
+    .testimonial-carousel {
+        display: flex;
+        flex-wrap : wrap;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .testimonial-item {
+        width: calc(100% / 6);
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-item p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-item h5 {
+        font-size: 1.5rem;
+        color: #007bff;
+        margin-top: 10px;
+    }
+
+    /* Newsletter Section */
+        .newsletter {
+            padding: 50px 10%;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .newsletter button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+
+        /* Services Styles */
+        .services {
+            padding: 50px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .services h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .service-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            margin: 15px;
+            transition: transform 0.3s;
+            text-align: center;
+            width: 250px;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+
+        .service-item img {
+            border-radius: 15px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item h4 {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-top: 10px;
+        }
+
+        /* Portfolio Styles */
+        .portfolio {
+            padding: 50px 20px; /* Adds padding around the section */
+            text-align: center; /* Center aligns the heading */
+            background-color: #f9f9f9; /* Light background for contrast */
+        }
+        
+        .portfolio h1 {
+            font-size: 3rem; /* Size of the portfolio heading */
+            margin-bottom: 40px; /* Space below the heading */
+            color: #333; /* Dark color for the heading */
+        }
+        
+        .gallery {
+            display: grid; /* Use CSS grid for layout */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 20px; /* Space between grid items */
+        }
+        
+        .gallery img {
+            width: 100%; /* Ensure images take the full width of the grid item */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Slightly rounded corners */
+            transition: transform 0.3s ease; /* Smooth scale effect on hover */
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05); /* Slightly enlarge the image on hover */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        
+        /* Optional: Media Queries for additional responsiveness */
+        @media (max-width: 768px) {
+            .portfolio h1 {
+                font-size: 2.5rem; /* Smaller font size for smaller screens */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .portfolio h1 {
+                font-size: 2rem; /* Further reduce font size for mobile */
+            }
+        }
+        
+
+        /* Contact Styles */
+        .contact {
+            padding: 50px 10%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .contact h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .contact .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact .form-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .contact .form-group input, .contact .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .contact .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .contact button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .contact button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .contact-middle {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-middle div {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .contact-middle div span {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-middle div p {
+            margin: 0;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .row.align-items-center {
+                display: flex;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="slider">
+            <div class="slides">
+                <img src="images/image1.jpg" alt="Image 1" class="slide" />
+                <img src="images/image2.jpg" alt="Image 2" class="slide" />
+                <img src="images/image3.jpg" alt="Image 3" class="slide" />
+            </div>
+            <div class="carousel-overlay">
+                <h1 style="color: white;">Welcome to Shuton Photography</h1>
+                <p style="color: white;">We capture life's precious moments</p>
+                <button class="btn btn-light btn-lg mt-3" onclick="location.href='/contact'">Contact Us</button>
+            </div>
+        </div>
+    </header>
+    <nav class="nav-section">
+        <div class="brand-logo">
+            <a href="/"><img src="/images/logo.png" alt="Shuton Photography Logo" /></a>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/clients">Clients</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+   
+
+    <!-- Section One -->
+    <section class="section-one">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 sec-one-left">
+                    <img src="images/about.jpg" alt="About Us Image">
+                </div>
+                <div class="col-md-6 work-content">
+                    <h3>Welcome to Shuton Photography</h3>
+                    <p>At Shuton Photography, we offer world-class services for all your photography needs, from corporate events to nature shoots. We work with top-of-the-line equipment and ensure that every moment is captured beautifully.</p>
+                    <div class="work-imgs">
+                        <div class="work-img-1">
+                            <img src="images/work1.png" alt="Work 1 Image">
+                        </div>
+                        <div class="work-img-2">
+                            <img src="images/work2.jpg" alt="Work 2 Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h1>Our Services</h1>
+        <div class="service-grid">
+            <div class="service-item">
+                <img src="images/service1.jpg" alt="Wedding Photography">
+                <h4>Wedding Photography</h4>
+            </div>
+            <div class="service-item">
+                <img src="images/service2.jpg" alt="Corporate Photography">
+                <h4>Corporate Photography</h4>
+            </div>
+            <div class="service-item">
+                <img src="images/service3.jpg" alt="Studio Photography">
+                <h4>Studio Photography</h4>
+            </div>
+            <div class="service-item">
+                <img src="images/service4.jpg" alt="Nature & Travel Photography">
+                <h4>Nature & Travel Photography</h4>
+            </div>
+        </div>
+    </section>
+
+   <!-- Portfolio Section -->
+<section class="portfolio" id="portfolio">
+    <h1>Portfolio</h1>
+    <div class="gallery">
+        <img src="images/wed.jpg" alt="Wedding Photography">
+        <img src="images/corporate2.jpg" alt="Corporate Event Photography">
+        <img src="images/graduation1.jpg" alt="Graduation Photography">
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+<section class="contact" style="background-image: linear-gradient(to bottom, #f9f9f9, #fff);">
+    <div class="container">
+        <h1 style="color: #007bff;">Get in Touch</h1>
+        <p style="color: #343a40; text-align: center;">We'd love to hear from you! Please fill out the form below to send us a message.</p>
+        <form action="/send-message" method="post">
+            <div class="form-group">
+                <label for="name" style="color: #007bff;">Your Name</label>
+                <input type="text" id="name" name="name" required style="border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+            </div>
+            <div class="form-group">
+                <label for="email" style="color: #007bff;">Your Email</label>
+                <input type="email" id="email" name="email" required style="border: 1px solid #ccc; border-radius: 5px; padding: 10px;">
+            </div>
+            <div class="form-group">
+                <label for="message" style="color: #007bff;">Your Message</label>
+                <textarea id="message" name="message" required style="border: 1px solid #ccc; border-radius: 5px; padding: 10px;"></textarea>
+            </div>
+            <button type="submit" style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Send Message</button>
+        </form>
+    </div>
+</section>
+     
+     <!-- Testimonials Section -->
+<section class="testimonials">
+    <h1>What Our Clients Say</h1>
+    <div class="testimonial-carousel">
+        <div class="testimonial-item">
+            <p>"Shuton Photography captured our wedding beautifully!"</p>
+            <h5>- Ruach</h5>
+        </div>
+        <div class="testimonial-item">
+            <p>"Absolutely stunning corporate event photography!"</p>
+            <h5>- CEO, Stunz</h5>
+        </div>
+        <div class="testimonial-item">
+            <p>"Shuton Photography exceeded our expectations!"</p>
+            <h5>- Emily & Michael</h5>
+        </div>
+        <div class="testimonial-item">
+            <p>"Their attention to detail is impressive!"</p>
+            <h5>- Rachel & David</h5>
+        </div>
+    </div>
+</section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h1>Subscribe to Our Newsletter</h1>
+        <form action="/subscribe" method="post">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <section class="section-five">
+            <div class="container">
+                <div class="contact-top">
+                    <h3>CONTACT ME</h3>
+                    <p>FOR ANY QUESTIONS OR SERVICES.</p>
+                </div>
+                <div class="contact-middle">
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-map-signs"></i>
+                        </span>
+                        <span>Address</span>
+                        <p>Opposite - Distar Hotel, Voi</p>
+                    </div>
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        <span>Contact Number</span>
+                        <p>0758926530 / 0722462645 / 0706872810</p>
+                    </div>
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                        <span>Email Address</span>
+                        <p>shutonphotography@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

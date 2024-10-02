@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gallery - Photography Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+    <style>
+        /* Styling for better layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Section */
+        .nav-section {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #fff;
+        }
+
+        .brand-logo {
+            margin-right: 20px;
+        }
+
+        .brand-logo img {
+            width: 110px;
+            height: 80px;
+          }
+
+        .nav-section ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-section ul li {
+            margin: 0 20px;
+        }
+
+        .nav-section ul a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-section ul a:hover {
+            color: #ff6600;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery .single-img {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery .single-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .contact-middle {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-middle div {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .contact-middle div span {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .contact-middle div p {
+            margin: 0;
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .top-nav {
+                margin-top: 10px;
+            }
+
+            .top-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .top-nav ul li {
+                margin: 5px 10px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-middle {
+                flex-direction: column;
+            }
+
+            .slider {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .slider {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="slider">
+        <div class="slides">
+            <img src="images/image1.jpg" alt="Image 1" class="slide" />
+            <img src="images/image2.jpg" alt="Image 2" class="slide" />
+            <img src="images/image3.jpg" alt="Image 3" class="slide" />
+        </div>
+    </header>
+    <div class="carousel-overlay">
+        <h1 style="color: white;">Welcome to Shuton Photography</h1>
+        <p style="color: white;">We capture life's precious moments</p>
+        <button class="btn btn-light btn-lg mt-3" onclick="location.href='/contact'">Contact Us</button>
+    </div>
+    </header>
+    <nav class="nav-section">
+        <div class="brand-logo">
+            <a href="/"><img src="/images/logo.png" alt="Shuton Photography Logo" /></a>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/clients">Clients</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+   
+
+    <!-- End of Header -->
+
+    <!-- Gallery Section -->
+    <section class="section-three">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <a href="images/gallery 1.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery1.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery2.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery2.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery3.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery3.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery4.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery4.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery5.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery5.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery6.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery6.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery7.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery7.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery8.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery8.jpg" alt="gallery image">
+                    </div>
+                </a>
+                <a href="images/gallery9.jpg">
+                    <div class="single-img">
+                        <img src="images/gallery9.jpg" alt="gallery image">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- End of Gallery Section -->
+
+    <!-- Footer -->
+    <footer>
+        <section class="section-five">
+            <div class="container">
+                <div class="contact-top">
+                    <h3>CONTACT ME</h3>
+                    <p>FOR ANY QUESTIONS OR SERVICES.</p>
+                </div>
+                <div class="contact-middle">
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-map-signs"></i>
+                        </span>
+                        <span>Address</span>
+                        <p>Opposite - Distar Hotel, Voi</p>
+                    </div>
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        <span>Contact Number</span>
+                        <p>0758926530 / 0722462645 / 0706872810</p>
+                    </div>
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                        <span>Email Address</span>
+                        <p>shutonphotography@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!-- End of Footer -->
+
+    <script src="scripts.js"></script>
+</body>
+</html>

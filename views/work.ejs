@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuton Photography</title>
+    <link rel="stylesheet" href="/main.css">
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation Section */
+        .nav-section {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #fff;
+        }
+
+        .brand-logo {
+            margin-right: 20px;
+        }
+
+        .brand-logo img {
+            width: 110px;
+            height: 80px;
+          }
+
+        .nav-section ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-section ul li {
+            margin: 0 20px;
+        }
+
+        .nav-section ul a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-section ul a:hover {
+            color: #ff6600;
+        }
+
+        /* Main Content Section */
+        main {
+            padding: 50px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button Section */
+        .button {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .button a {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button a:hover {
+            background-color: #cc5200;
+        }
+
+        /* Carousel Overlay */
+        .carousel-overlay {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header class="slider">
+        <div class="slides">
+            <img src="images/image1.jpg" alt="Image 1" class="slide" />
+            <img src="images/image2.jpg" alt="Image 2" class="slide" />
+            <img src="images/image3.jpg" alt="Image 3" class="slide" />
+        </div>
+    </header>
+    <div class="carousel-overlay">
+        <h1 style="color: white;">Welcome to Shuton Photography</h1>
+        <p style="color: white;">We capture life's precious moments</p>
+        <button class="btn btn-light btn-lg mt-3" onclick="location.href='/contact'">Contact Us</button>
+    </div>
+    </header>
+    <nav class="nav-section">
+        <div class="brand-logo">
+            <a href="/"><img src="/images/logo.png" alt="Shuton Photography Logo" /></a>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/clients">Clients</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+   
+    <main>
+        <!-- Corporate Section -->
+        <section id="corporate">
+            <h 2>Corporate Photography</h2>
+            <div class="gallery">
+                <img src="/images/corporate1.jpg" alt="Corporate Image 1">
+                <img src="/images/corporate2.jpg" alt="Corporate Image 2">
+                <img src="/images/corporate3.jpg" alt="Corporate Image 3">
+                <img src="/images/corporate4.jpg" alt="Corporate Image 4">
+                <img src="/images/corporate5.jpg" alt="Corporate Image 5">
+            </div>
+        </section>
+
+        <!-- Graduation Section -->
+        <section id="graduation">
+            <h2>Graduation Photography</h2>
+            <div class="gallery">
+                <img src="/images/graduation1.jpg" alt="Graduation Image 1">
+                <img src="/images/graduation2.jpg" alt="Graduation Image 2">
+                <img src="/images/graduation3.jpg" alt="Graduation Image 3">
+                <img src="/images/graduation4.jpg" alt="Graduation Image 4">
+                <img src="/images/graduation5.jpg" alt="Graduation Image 5">
+            </div>
+        </section>
+
+        <!-- Wedding Section -->
+        <section id="wedding">
+            <h2>Wedding Photography</h2>
+            <div class="gallery">
+                <img src="/images/wedding1.jpg" alt="Wedding Image 1">
+                <img src="/images/wedding2.jpg" alt="Wedding Image 2">
+                <img src="/images/wedding3.jpg" alt="Wedding Image 3">
+                <img src="/images/wedding4.jpg" alt="Wedding Image 4">
+                <img src="/images/wedding5.jpg" alt="Wedding Image 5">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="section-five">
+            <div class="container">
+                <div class="contact-top">
+                    <h3>CONTACT ME</h3>
+                    <p>FOR ANY QUESTIONS OR SERVICES.</p>
+                </div>
+                <div class="contact-middle">
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-map-signs"></i>
+                        </span>
+                        <span>Address</span>
+                        <p>Opposite - Distar Hotel, Voi</p>
+                    </div>
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        <span>Contact Number</span>
+                        <p>0758926530 / 0722462645 / 0706872810</p>
+                    </div>
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                        <span>Email Address</span>
+                        <p>shutonphotography@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

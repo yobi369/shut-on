@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Shuton Photography</title>
+    <link rel="stylesheet" href="/main.css">
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation Section */
+        .nav-section {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        .brand-logo {
+            margin-right: 20px;
+        }
+
+        .brand-logo img {
+            width: 110px;
+            height: 80px;
+          }
+
+        .nav-section ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .nav-section ul li {
+            margin: 0 20px;
+        }
+
+        .nav-section ul a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .nav-section ul a:hover {
+            color: #ff6600;
+        }
+
+        /* Main Content Section */
+        main {
+            padding: 50px 10%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Carousel Overlay */
+        .carousel-overlay {
+            margin-top: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .carousel-overlay h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .carousel-overlay p {
+            font-size: 20px;
+        }
+
+        .carousel-overlay a {
+            background-color: #fff;
+            color: #333;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .carousel-overlay a:hover {
+            background-color: #ff6600;
+            color: white;
+        }
+
+        /* Contact and Map Containers */
+        .contact-map-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .contact-container {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px; /* Add some spacing between the contact and map */
+        }
+
+        .contact-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-container form input, 
+        .contact-container form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-container form input[type="submit"] {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-container form input[type="submit"]:hover {
+            background-color: #cc5200;
+        }
+
+        /* Map Container */
+        .map-container {
+            flex: 1;
+            text-align: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with Carousel -->
+    <header class="slider">
+        <div class="slides">
+            <img src="/images/image1.jpg" alt="Image 1" class="slide" />
+            <img src="/images/image2.jpg" alt="Image 2" class="slide" />
+            <img src="/images/image3.jpg" alt="Image 3" class="slide" />
+        </div>
+    </header>
+    <div class="carousel-overlay">
+        <h1 style="color: white;">Welcome to Shuton Photography</h1>
+        <p style="color: white;">We capture life's precious moments</p>
+        <button class="btn btn-light btn-lg mt-3" onclick="location.href='/contact'">Contact Us</button>
+    </div>
+    </header>
+    <!-- Navigation Section -->
+    <nav class="nav-section">
+        <div class="brand-logo">
+            <a href="/"><img src="/images/logo.png" alt="Shuton Photography Logo" /></a>
+        </div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/clients">Clients</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contact Section -->
+    <main>
+        <div class="contact-map-container">
+            <!-- Contact Form Section -->
+            <section class="contact-container">
+                <h3>Send Us a Message</h3>
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <input type="submit" value="Send Message">
+                </form>
+            </section>
+
+            <!-- Embedded Google Map -->
+            <section class="map-container">
+                <h3>Find Us Here</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31813.272524049647!2d38.53118094888503!3d-3.4064320274448885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18375ef4c62ab7a7%3A0x25a7dcf24a47652e!2sVoi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1696087756794!5m2!1sen!2sus"
+                    width="600"
+                    height="450"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <section class="section-five">
+            <div class="container">
+                <div class="contact-top">
+                    <h3>CONTACT US</h3>
+                    <p>We would love to hear from you.</p>
+                </div>
+                <div class="contact-middle">
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-map-signs"></i>
+                        </span>
+                        <span>Address</span>
+                        <p>Opposite - Distar Hotel, Voi</p>
+                    </div>
+
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </span>
+                        <span>Contact Number</span>
+                        <p>0758926530 / 0722462645 / 0706872810</p>
+                    </div>
+
+                    <div>
+                        <span class="contact-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </span>
+                        <span>Email Address</span>
+                        <p>shutonphotography@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+</html>
