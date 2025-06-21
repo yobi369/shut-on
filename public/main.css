@@ -1,126 +1,485 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Modern sans-serif stack */
+    background-color: #f8f9fa; /* From index.ejs <style> */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    /* background-color: #f4f4f4; */ /* Original main.css, overridden by index.ejs style */
 }
 
 /* General styles for header and logo */
-
+/* (No specific styles here in original main.css) */
 
 /* Main Content Styles */
 main {
     padding: 20px; /* Padding for main content */
 }
 
-h1 {
-    text-align: center; /* Center align headings */
-    margin: 40px 0; /* Margin for heading */
-}
-
-/* Gallery Styles */
-.gallery {
-    display: grid; /* Use grid for gallery */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 15px; /* Space between grid items */
-    padding: 20px; /* Padding for gallery */
-}
-
-.gallery img {
-    width: 100%; /* Make images responsive */
-    border-radius: 5px; /* Rounded corners for images */
-}
-
- /* Footer Section */
- footer {
-    background-color: #333;
-    color: white;
-    padding: 50px 0;
-}
-.contact-top {
+h1 { /* Generic h1 from original main.css, might be overridden by section-specific h1s */
     text-align: center;
-  }
+    margin: 40px 0;
+}
 
-.contact-middle {
+/* Styles moved from views/index.ejs <style> tag */
+/* ================================================ */
+
+/* Navigation Section (from index.ejs) */
+.nav-section {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 15px 30px; /* Adjusted padding */
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    color: #fff;
+    z-index: 1030; /* Ensure it's above other content like slider */
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark background */
+    transition: background-color 0.3s ease; /* For potential scroll effect later */
 }
 
-.contact-middle div {
-    flex: 1;
-    padding: 15px;
+.brand-logo {
+    margin-right: 20px;
 }
 
-.contact-middle div span {
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.brand-logo img {
+    width: 100px; /* Slightly reduced size */
+    height: auto; /* Maintain aspect ratio */
 }
 
-.contact-middle div p {
-    margin: 0;
+.nav-section ul {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0; /* Reset Bootstrap/browser default */
+    margin-bottom: 0; /* Reset Bootstrap/browser default */
 }
 
-.contact-icon {
-    font-size: 24px;
-    color: #007bff;
-    margin-right: 10px;
+.nav-section ul li {
+    margin: 0 15px; /* Slightly reduced margin */
+}
+
+.nav-section ul a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500; /* Adjusted font weight */
+    font-size: 1rem; /* Adjusted font size */
+    transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 0.9;
+}
+
+.nav-section ul a:hover,
+.nav-section ul a.active { /* Style for active link */
+    color: #fff;
+    opacity: 1;
+    /* text-decoration: underline; */ /* Alternative hover/active style */
+    /* color: #ffc107; */ /* Example: A gold accent for hover/active */
+}
+
+.nav-section ul a.active {
+    font-weight: 700; /* Make active link bolder */
 }
 
 
-
+/* Slider Styles (merged from main.css and index.ejs) */
 .slider {
     position: relative;
     overflow: hidden;
-    height: 80vh;
+    height: 80vh; /* From index.ejs (and main.css) */
 }
 
 .slides {
     display: flex;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease; /* From index.ejs (and main.css) */
 }
 
 .slide {
     min-width: 100%;
-    height: 80vh;
-    object-fit: cover;
+    height: 80vh; /* From index.ejs (and main.css) */
+    object-fit: cover; /* From index.ejs (and main.css) */
 }
 
-.carousel-overlay {
+.carousel-overlay { /* From index.ejs (and main.css) */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: transparent;
+    background: transparent; /* Or a slight rgba overlay if needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #000000;
+    text-align: center;
+    /* color: #080808; */ /* From index.ejs, but text color is set inline directly */
+    /* color: #000000; */ /* From original main.css */
+}
+
+.carousel-overlay h1 { /* From index.ejs (and main.css) */
+    font-size: 4rem;
+    /* color is set inline in EJS, consider moving here */
+    /* Flashing animation removed */
+}
+
+.carousel-overlay p.lead { /* From index.ejs (and main.css) */
+    font-size: 1.5rem;
+    /* color is set inline in EJS, consider moving here */
+    /* Flashing animation removed */
+}
+
+/* @keyframes flash animation removed */
+
+/* Section One / About Us (from index.ejs) */
+.section-one {
+    padding: 50px 0;
+    background-color: #f8f9fa;
+}
+
+.sec-one-left img {
+    width: 100%; /* Make responsive */
+    max-width: 600px; /* Maintain original max size */
+    height: auto; /* Maintain aspect ratio */
+    /* height: 750px; */ /* Original fixed height, changed for responsiveness */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: block; /* To handle potential margin issues */
+    margin: 0 auto; /* Center if it becomes smaller than col */
+}
+
+.work-content {
+    /* margin-top: -80px; */ /* Negative margins can be tricky, review layout */
+    /* margin-left: 20px; */
+    padding-top: 20px; /* Alternative to negative margin */
+}
+
+.work-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.work-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.work-imgs {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Add some gap */
+    margin-top: 20px;
+}
+
+.work-img-1, .work-img-2 {
+    width: 100%; /* Full width on small screens */
+    /* height: 300px; */ /* Let height be auto based on content/aspect ratio */
+}
+
+@media (min-width: 576px) { /* Adjust breakpoint as needed */
+    .work-img-1, .work-img-2 {
+        width: 48%; /* Side-by-side on larger screens */
+    }
+}
+
+.work-img-1 img, .work-img-2 img {
+    width: 100%;
+    height: 300px; /* Fixed height for these specific images */
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials Section (from index.ejs) */
+.testimonials {
+    padding: 50px 10%;
+    background-color: #fff;
     text-align: center;
 }
 
-.carousel-overlay h1 {
-    font-size: 4rem;
-    animation: flash 3s infinite;
+.testimonial-carousel {
+    display: flex;
+    flex-wrap : wrap; /* Allows items to wrap */
+    justify-content: center; /* Center items if they don't fill the row */
+    width: 100%; /* Use full width of parent */
+    max-width: 1200px; /* Optional: constrain max width */
+    margin: 0 auto;
+    gap: 20px; /* Space between items */
 }
 
-.carousel-overlay p.lead {
+.testimonial-item {
+    /* width: calc(100% / 6); */ /* This is too small if only a few items, changed for flex-basis */
+    flex-basis: calc(33.333% - 20px); /* Example: 3 items per row, accounting for gap */
+    min-width: 280px; /* Minimum width before wrapping */
+    flex-grow: 1;
+    margin: 10px; /* Original margin, consider if gap is enough */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa; /* Added light background */
+}
+
+.testimonial-item p {
+    font-size: 1.1rem; /* Slightly adjusted */
+    line-height: 1.7;
+    color: #343a40;
+    margin-bottom: 15px; /* Slightly adjusted */
+}
+
+.testimonial-item h5 {
+    font-size: 1.3rem; /* Slightly adjusted */
+    color: #007bff;
+    margin-top: 10px;
+}
+
+/* Services Styles (from index.ejs) */
+.services {
+    padding: 50px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+}
+
+.services h1 {
+    font-size: 2.8rem; /* Adjusted from 36px */
+    font-weight: bold;
+    margin-bottom: 40px; /* Increased margin */
+    color: #333;
+}
+
+.service-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Add gap for spacing */
+}
+
+.service-item {
+    margin: 15px; /* Original margin, consider if gap is enough */
+    transition: transform 0.3s;
+    text-align: center;
+    width: 250px; /* Fixed width */
+    background-color: #f8f9fa; /* Added for visual separation */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.05);
+}
+
+.service-item:hover {
+    transform: translateY(-5px) scale(1.03); /* Adjusted hover effect */
+    box-shadow: 0px 6px 12px rgba(0,0,0,0.1);
+}
+
+.service-item img {
+    border-radius: 10px; /* Matched item radius */
+    height: 200px;
+    width: 100%; /* Ensure image fits container */
+    object-fit: cover;
+    margin-bottom: 15px; /* Increased margin */
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */ /* Shadow is on parent now */
+}
+
+.service-item h4 {
     font-size: 1.5rem;
-    animation: flash 3s infinite 0.5s;
+    color: #007bff;
+    margin-top: 10px;
+    margin-bottom: 0; /* Remove default bottom margin if any */
 }
 
-@keyframes flash {
-    0%, 100% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
+/* Portfolio Styles (merged from main.css and index.ejs) */
+.portfolio {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.portfolio h1 {
+    font-size: 2.8rem; /* Adjusted from 3rem */
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Gallery Styles (merged from main.css and index.ejs) */
+/* This applies to the portfolio gallery and the general .gallery class */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Increased gap from 15px */
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Was 5px in main.css, 10px in index.ejs. Using 10px */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Added a subtle shadow */
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+}
+
+/* Portfolio specific media queries (from index.ejs) */
+@media (max-width: 768px) {
+    .portfolio h1 {
+        font-size: 2.5rem;
     }
 }
 
+@media (max-width: 480px) {
+    .portfolio h1 {
+        font-size: 2rem;
+    }
+}
 
+/* Contact Form Section Styles (from index.ejs) */
+/* Renaming .contact to .contact-form-section to avoid conflict with a potential .contact page style */
+.contact-form-section {
+    padding: 50px 10%;
+    /* background-image is set inline in EJS */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.contact-form-section h1 {
+    font-size: 2.5rem; /* Adjusted from 36px */
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* color is set inline in EJS */
+}
+
+.contact-form-section p {
+    font-size: 1.1rem; /* Adjusted from 18px */
+    margin-bottom: 30px; /* Increased margin */
+    /* color is set inline in EJS */
+}
+
+.contact-form-section form {
+    max-width: 600px; /* Increased max-width */
+    margin: 0 auto;
+    background-color: #fff; /* Add background to form */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form-section .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form-section .form-group label {
+    display: block;
+    margin-bottom: 8px; /* Adjusted margin */
+    font-weight: bold;
+    /* color is set inline in EJS */
+}
+
+.contact-form-section .form-group input,
+.contact-form-section .form-group textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Add for consistent sizing */
+}
+
+.contact-form-section .form-group textarea {
+    height: 120px; /* Increased height */
+    resize: vertical;
+}
+
+.contact-form-section button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 25px; /* Increased padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-section button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Section (merged from main.css and index.ejs) */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 50px 0;
+    /* section.section-five inside footer in EJS seems redundant, styling footer directly */
+}
+
+.contact-top { /* This was in main.css, not in index.ejs <style> but present in EJS structure */
+    text-align: center;
+    margin-bottom: 30px; /* Added margin */
+}
+
+.contact-top h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+.contact-top p {
+    font-size: 1rem;
+    color: #ccc; /* Lighter color for subtitle */
+}
+
+.contact-middle { /* From main.css and index.ejs structure */
+    display: flex;
+    justify-content: space-around; /* Changed from space-between for better distribution */
+    flex-wrap: wrap;
+    max-width: 1200px; /* Added max-width */
+    margin: 0 auto; /* Center it */
+    padding: 0 15px; /* Add padding for smaller screens */
+}
+
+.contact-middle div { /* A flex item in the footer */
+    flex: 1;
+    padding: 15px;
+    min-width: 280px; /* Minimum width for each contact block */
+    text-align: center; /* Center text within each block */
+}
+
+.contact-middle div span { /* The title like "Address", "Contact Number" */
+    display: block;
+    font-size: 1.2rem; /* Adjusted from 18px */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00aeff; /* Changed icon/title color for better contrast */
+}
+
+.contact-middle div p {
+    margin: 0;
+    font-size: 0.95rem; /* Adjusted for consistency */
+    line-height: 1.6;
+}
+
+.contact-icon { /* For icons in footer */
+    font-size: 2rem; /* Adjusted from 24px */
+    color: #00aeff; /* Matched title color */
+    margin-bottom: 10px; /* Added margin below icon */
+    display: block; /* Make it block to apply margin */
+}
+
+/* Bootstrap alignment helper (from index.ejs) */
+@media (min-width: 768px) {
+    .row.align-items-center { /* Keep if Bootstrap's default flex alignment isn't sufficient */
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* End of styles moved from views/index.ejs <style> tag */
+/* ================================================ */

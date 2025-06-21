@@ -1,39 +1,33 @@
 const express = require('express');
 const path = require('path');
+const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 
+// Middleware to parse URL-encoded data (form submissions)
+app.use(express.urlencoded({ extended: true }));
 
-//
+// Logging middleware
 app.use((req, res, next) => {
-    console.log(`Request URL: ${req.url}`);
-    next();  // Continue to next middleware or route handler
+    console.log(`Request URL: ${req.url}, Method: ${req.method}`);
+    next();
 });
-
 
 // Serve static files (CSS, images, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static('public'));
-
 // Define routes
-
-
 
 // Route for /work page
 app.get('/work', (req, res) => {
-    res.render('work'); // This will render views/gallery.ejs
+    res.render('work', { activePage: 'work' }); // Added activePage
 });
 
-
-
-// blog
-// Sample data to pass to the EJS template
+// Blog
 const blogPosts = [
-    
     {
         title: "First Blog Post",
         image: "/images/post1.jpg",
@@ -61,80 +55,93 @@ app.get('/blog', (req, res) => {
         phone: "+254 700 000 000",
         email: "info@shutonstudio.com",
         hours: "Mon - Fri: 9am - 5pm",
-        year: new Date().getFullYear()
+        year: new Date().getFullYear(),
+        activePage: 'blog' // Added activePage
     });
 });
 
-// contact
-
-// Route handler for contact page
+// Contact Page
 app.get('/contact', (req, res) => {
     res.render('contact', {
       title: 'Contact Us - Shuton Studio',
       year: new Date().getFullYear(),
+      activePage: 'contact' // Added activePage
     });
-  });
-  
-  // Route handler for sending message
-  app.post('/send-message', (req, res) => {
-    const { name, email, message } = req.body;
-  
-    // Validate form fields
-    if (!name || !email || !message) {
-      res.status(400).send('Please fill in all fields');
-      return;
-    }
-  
-    // Send message (e.g., via email or SMS)
-    // For demonstration purposes, just log the message to the console
-    console.log(`Received message from ${name} (${email}): ${message}`);
-  
-    res.send('Message sent successfully');
-  });
-//gallery
-app.get('/gallery', (req, res) => {
-    const images = [
-        { src: 'header1.jpg', alt: 'A beautiful landscape' },
-        { src: 'header2.jpg', alt: 'A stunning sunset' },
-        { src: 'header3.jpg', alt: 'City skyline at night' },
-        { src: 'header4.jpg', alt: 'Wildlife photography' },
-        { src: 'header5.jpg', alt: 'Portrait of a model' },
-        { src: 'header6.jpg', alt: 'Nature at its best' },
-        { src: 'header7.jpg', alt: 'Adventure photography' },
-        { src: 'header8.jpg', alt: 'Family portrait' },
-        { src: 'header9.jpg', alt: 'Wedding ceremony' },
-
-    ];
-    
-
-    res.render('gallery', { title: 'Gallery', images });
 });
 
+// Configure nodemailer transporter
+// IMPORTANT: Replace with your actual email service details for this to work.
+const transporter = nodemailer.createTransport({
+    service: 'gmail', // Or your preferred email provider
+    auth: {
+        user: 'YOUR_EMAIL@gmail.com', // Replace with your email address
+        pass: 'YOUR_APP_PASSWORD'    // Replace with your email app password
+    }
+});
 
+// Route handler for sending message
+app.post('/send-message', (req, res) => {
+    const { name, email, message } = req.body;
 
-//Rendering
+    if (!name || !email || !message) {
+      return res.status(400).send('Please fill in all fields');
+    }
 
+    const mailOptions = {
+        from: email,
+        to: 'shutonphotography@gmail.com',
+        subject: `New Contact Form Message from ${name}`,
+        text: `You have received a new message from your website contact form.\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+            return res.status(500).send('Sorry, there was an error sending your message. Please try again later.');
+        }
+        console.log('Message sent: %s', info.messageId);
+        res.send('Message sent successfully! We will get back to you soon.');
+    });
+});
+
+// Gallery
+app.get('/gallery', (req, res) => {
+    const images = [
+        { src: '/images/header1.jpg', alt: 'A beautiful landscape' },
+        { src: '/images/header2.jpg', alt: 'A stunning sunset' },
+        { src: '/images/header3.jpg', alt: 'City skyline at night' },
+        { src: '/images/header4.jpg', alt: 'Wildlife photography' },
+        { src: '/images/header5.jpg', alt: 'Portrait of a model' },
+        { src: '/images/header6.jpg', alt: 'Nature at its best' },
+        { src: '/images/header7.jpg', alt: 'Adventure photography' },
+        { src: '/images/header8.jpg', alt: 'Family portrait' },
+        { src: '/images/header9.jpg', alt: 'Wedding ceremony' },
+    ];
+    res.render('gallery', { title: 'Gallery', images, activePage: 'gallery' }); // Added activePage
+});
+
+// Rendering Home Page
 app.get('/', (req, res) => {
     res.render('index', {
         pageTitle: 'Shuton Photography - Home',
-        logoPath: '/public/images/logo.png',
+        logoPath: '/images/logo.png',
         siteName: 'Shuton Photography',
         activePage: 'home',
         headerTitle: 'Capture Your Moments with Shuton Photography',
         headerDescription: 'Professional photography and videography services in Taita Taveta, Kenya',
         images: [
-            { path: '/public/images/slider1.jpg', alt: 'First Slide' },
-            { path: '/public/images/slider2.jpg', alt: 'Second Slide' },
-            { path: '/public/images/slider3.jpg', alt: 'Third Slide' },
-            { path: '/public/images/slider4.jpg', alt: 'Fourth Slide' }
+            { path: '/images/slider1.jpg', alt: 'First Slide' },
+            { path: '/images/slider2.jpg', alt: 'Second Slide' },
+            { path: '/images/slider3.jpg', alt: 'Third Slide' },
+            { path: '/images/slider4.jpg', alt: 'Fourth Slide' }
         ],
-        aboutImage: '/public/images/who-we-are.jpg',
+        aboutImage: '/images/who-we-are.jpg',
         aboutDescription: 'Shuton Photography specializes in commercial photography and videography. Located in Taita Taveta, Kenya, we bring a unique perspective to every project.',
         services: [
-            { image: '/public/images/video-coverage.jpg', title: 'Video Coverage', description: 'High-quality video production for your events and projects.' },
-            { image: '/public/images/livestreaming.jpg', title: 'Livestreaming', description: 'Engage your audience with professional livestreaming services.' },
-            { image: '/public/images/digital-content.jpg', title: 'Digital Content', description: 'Create compelling digital content to showcase your brand.' },
-            { image: '/public/images/still-photography.jpg', title: 'Still Photography', description: 'Capture stunning photographs for your projects and events.' }
+            { image: '/images/video-coverage.jpg', title: 'Video Coverage', description: 'High-quality video production for your events and projects.' },
+            { image: '/images/livestreaming.jpg', title: 'Livestreaming', description: 'Engage your audience with professional livestreaming services.' },
+            { image: '/images/digital-content.jpg', title: 'Digital Content', description: 'Create compelling digital content to showcase your brand.' },
+            { image: '/images/still-photography.jpg', title: 'Still Photography', description: 'Capture stunning photographs for your projects and events.' }
         ],
         contactEmail: 'shutonphotography@gmail.com',
         contactPhone: '0758926530 / 0722462645',
@@ -146,13 +153,12 @@ app.get('/', (req, res) => {
     });
 });
 
-// app.js
+// Start server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`); // This line will confirm the server is running
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-
+// Clients Page
 app.get('/clients', (req, res) => {
-    // Assuming you have an EJS template for clients
-    res.render('clients');  // Render 'clients.ejs' template
+    res.render('clients', { activePage: 'clients' }); // Added activePage
 });
