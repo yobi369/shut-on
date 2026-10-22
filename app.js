@@ -107,15 +107,15 @@ app.get('/gallery', async (req, res) => {
   const images = photos.length
     ? photos.map((photo) => ({ src: photo.image_url, alt: photo.alt_text || photo.title || 'Shuton Photography image' }))
     : [
-        { src: '/images/header1.jpg', alt: 'A beautiful landscape' },
-        { src: '/images/header2.jpg', alt: 'A stunning sunset' },
-        { src: '/images/header3.jpg', alt: 'City skyline at night' },
-        { src: '/images/header4.jpg', alt: 'Wildlife photography' },
-        { src: '/images/header5.jpg', alt: 'Portrait of a model' },
-        { src: '/images/header6.jpg', alt: 'Nature at its best' },
-        { src: '/images/header7.jpg', alt: 'Adventure photography' },
-        { src: '/images/header8.jpg', alt: 'Family portrait' },
-        { src: '/images/header9.jpg', alt: 'Wedding ceremony' }
+        { src: '/images/gallery1.jpg', alt: 'Gallery photograph 1' },
+        { src: '/images/gallery2.jpg', alt: 'Gallery photograph 2' },
+        { src: '/images/gallery3.jpg', alt: 'Gallery photograph 3' },
+        { src: '/images/gallery4.jpg', alt: 'Gallery photograph 4' },
+        { src: '/images/gallery5.jpg', alt: 'Gallery photograph 5' },
+        { src: '/images/gallery6.jpg', alt: 'Gallery photograph 6' },
+        { src: '/images/gallery7.jpg', alt: 'Gallery photograph 7' },
+        { src: '/images/gallery8.jpg', alt: 'Gallery photograph 8' },
+        { src: '/images/gallery9.jpg', alt: 'Gallery photograph 9' }
       ];
   res.render('gallery', { title: 'Gallery', images });
 });
