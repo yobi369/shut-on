@@ -44,7 +44,7 @@ app.get('/admin', (req, res) => {
 async function getPublishedPhotos() {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_ANON_KEY;
-  if (!url || !key) return [];
+  if (!url || !key) return null;
   try {
     const response = await fetch(
       url.replace(/\/$/, '') + '/rest/v1/photos?select=id,title,description,category,image_url,alt_text,is_featured,sort_order&is_published=eq.true&order=sort_order.asc,created_at.desc',
@@ -52,13 +52,13 @@ async function getPublishedPhotos() {
     );
     if (!response.ok) {
       console.error('Unable to load published photos from the gallery service:', response.status);
-      return [];
+      return null;
     }
     const rows = await response.json();
     return Array.isArray(rows) ? rows : [];
   } catch (error) {
     console.error('Gallery service unavailable:', error.message);
-    return [];
+    return null;
   }
 }
 
@@ -99,12 +99,12 @@ app.post('/send-message', (req, res) => {
   // This endpoint validates submissions but does not deliver email yet. Connect a
   // trusted mail provider before representing it as a working contact-delivery flow.
   console.log('Contact enquiry received:', { name, email, messageLength: message.length });
-  return res.status(202).send('Your enquiry has been received. Please contact the studio directly if you need an immediate response.');
+  return res.status(503).send('Online message delivery is not configured yet. Please contact the studio by phone or email.');
 });
 
 app.get('/gallery', async (req, res) => {
   const photos = await getPublishedPhotos();
-  const images = photos.length
+  const images = photos !== null
     ? photos.map((photo) => ({ src: photo.image_url, alt: photo.alt_text || photo.title || 'Shuton Photography image' }))
     : [
         { src: '/images/gallery1.jpg', alt: 'Gallery photograph 1' },
