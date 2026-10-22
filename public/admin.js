@@ -59,7 +59,8 @@
         '<div class="photo-meta"><span class="status-pill ' + (photo.is_published ? 'live' : '') + '">' + (photo.is_published ? 'Published' : 'Draft') + '</span>' +
         '<p class="photo-title">' + escapeHtml(title) + '</p>' +
         '<p class="photo-sub">' + escapeHtml(photo.category || 'Other') + (photo.description ? ' · ' + escapeHtml(photo.description) : '') + '</p>' +
-        '<div class="photo-actions"><button class="button button-light" data-action="toggle" data-id="' + escapeHtml(photo.id) + '">' + (photo.is_published ? 'Unpublish' : 'Publish') + '</button>' +
+        '<div class="photo-actions"><button class="button button-light" data-action="edit" data-id="' + escapeHtml(photo.id) + '">Edit details</button>' +
+        '<button class="button button-light" data-action="toggle" data-id="' + escapeHtml(photo.id) + '">' + (photo.is_published ? 'Unpublish' : 'Publish') + '</button>' +
         '<button class="button button-light" data-action="delete" data-id="' + escapeHtml(photo.id) + '">Delete</button></div></div></article>';
     }).join('');
   }
@@ -170,7 +171,29 @@
     const action = button.dataset.action;
     if (action === 'delete' && !window.confirm('Delete this photo from the portfolio? This cannot be undone.')) return;
     setBusy(button, true, action === 'delete' ? 'Deleting…' : 'Saving…');
-    if (action === 'toggle') {
+    if (action === 'edit') {
+      const { data: row, error: readError } = await client.from('photos').select('title,description,category,alt_text').eq('id', photo).single();
+      if (readError) {
+        message('Could not load this photo for editing.', '');
+      } else {
+        const title = window.prompt('Photo title', row.title || '');
+        if (title !== null) {
+          const description = window.prompt('Description / caption', row.description || '');
+          const category = window.prompt('Category', row.category || 'Other');
+          const altText = window.prompt('Accessibility alt text', row.alt_text || title);
+          if (description !== null && category !== null && altText !== null && title.trim()) {
+            const { error } = await client.from('photos').update({
+              title: title.trim().slice(0, 180),
+              description: description.trim().slice(0, 500) || null,
+              category: category.trim().slice(0, 80) || 'Other',
+              alt_text: altText.trim().slice(0, 250)
+            }).eq('id', photo);
+            if (error) message('Could not save photo details.', '');
+            else message('Photo details updated.', 'success');
+          }
+        }
+      }
+    } else if (action === 'toggle') {
       const { data: row, error: readError } = await client.from('photos').select('is_published').eq('id', photo).single();
       if (!readError) {
         const { error } = await client.from('photos').update({ is_published: !row.is_published }).eq('id', photo);
