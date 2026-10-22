@@ -5,9 +5,9 @@
   "description": "Shuton Photography public website and secure gallery administration",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node dev.js",
     "test": "node --test",
-    "check": "node --check app.js && node --check api/index.js && node --check public/admin.js"
+    "check": "node --check app.js && node --check api/index.js && node --check dev.js && node --check public/admin.js"
   },
   "engines": {
     "node": "22.x"
