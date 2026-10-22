@@ -47,7 +47,7 @@ async function getPublishedPhotos() {
   if (!url || !key) return [];
   try {
     const response = await fetch(
-      url.replace(/\\/$/, '') + '/rest/v1/photos?select=id,title,description,category,image_url,alt_text,is_featured,sort_order&is_published=eq.true&order=sort_order.asc,created_at.desc',
+      url.replace(/\/$/, '') + '/rest/v1/photos?select=id,title,description,category,image_url,alt_text,is_featured,sort_order&is_published=eq.true&order=sort_order.asc,created_at.desc',
       { headers: { apikey: key, Authorization: 'Bearer ' + key } }
     );
     if (!response.ok) {
