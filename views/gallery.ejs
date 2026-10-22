@@ -197,51 +197,17 @@
         <div class="container">
             <h2>Gallery</h2>
             <div class="gallery">
-                <a href="images/gallery 1.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery1.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery2.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery2.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery3.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery3.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery4.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery4.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery5.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery5.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery6.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery6.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery7.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery7.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery8.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery8.jpg" alt="gallery image">
-                    </div>
-                </a>
-                <a href="images/gallery9.jpg">
-                    <div class="single-img">
-                        <img src="images/gallery9.jpg" alt="gallery image">
-                    </div>
-                </a>
+                <% if (typeof images !== 'undefined' && images.length) { %>
+                    <% images.forEach(function(image) { %>
+                        <a href="<%= image.src %>" target="_blank" rel="noopener noreferrer">
+                            <div class="single-img">
+                                <img src="<%= image.src %>" alt="<%= image.alt %>" loading="lazy">
+                            </div>
+                        </a>
+                    <% }); %>
+                <% } else { %>
+                    <p>Our latest photographs will be added here soon. Please check back shortly.</p>
+                <% } %>
             </div>
         </div>
     </section>
