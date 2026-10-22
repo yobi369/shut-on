@@ -1,12 +1,19 @@
 {
-  "name": "shutonwebsite",
-  "version": "1.0.0",
+  "name": "shuton-photography",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Shuton Photography public website and secure gallery administration",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dev.js",
+    "test": "node --test",
+    "check": "node --check app.js && node --check api/index.js && node --check dev.js && node --check public/admin.js"
   },
-  "keywords": [],
-  "author": "brian",
-  "license": "ISC",
-  "description": ""
+  "engines": {
+    "node": "22.x"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
 }
