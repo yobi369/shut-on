@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="/admin.js"></script>
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <header class="admin-header">
+      <a class="brand" href="/" aria-label="Shuton Photography home"><span class="brand-mark">S</span><span>SHUTON <small>PHOTOGRAPHY STUDIO</small></span></a>
+      <a class="back-link" href="/">View website ↗</a>
+    </header>
+
+    <section id="setup-warning" class="notice hidden" role="alert">
+      Admin setup is incomplete. Add <code>SUPABASE_URL</code> and <code>SUPABASE_ANON_KEY</code> to your Vercel project environment variables, then redeploy.
+    </section>
+
+    <section id="login-panel" class="login-panel">
+      <p class="eyebrow">PRIVATE STUDIO AREA</p>
+      <h1>Your work, <em>your way.</em></h1>
+      <p class="muted">Sign in to manage portfolio photographs and publish gallery updates.</p>
+      <form id="login-form" class="stack">
+        <label for="email">Studio email</label>
+        <input id="email" name="email" type="email" autocomplete="username" required maxlength="254">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="button button-dark" type="submit">Sign in securely</button>
+        <p id="login-error" class="error" role="alert"></p>
+      </form>
+      <p class="fine-print">Accounts are created by the site owner in Supabase. Public registration is intentionally not offered here.</p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">STUDIO MANAGEMENT</p><h1>Photo library</h1><p class="muted">Upload, organise and publish your latest work.</p></div>
+        <button id="signout-button" class="button button-light" type="button">Sign out</button>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><span>Total photos</span><strong id="total-count">0</strong></article>
+        <article class="stat-card"><span>Published</span><strong id="published-count">0</strong></article>
+        <article class="stat-card"><span>Drafts</span><strong id="draft-count">0</strong></article>
+      </div>
+
+      <section class="panel upload-panel">
+        <div><p class="eyebrow">ADD TO YOUR PORTFOLIO</p><h2>Upload photographs</h2><p class="muted">Choose multiple JPG, PNG or WebP images. Large original files may take time to upload.</p></div>
+        <form id="upload-form" class="stack">
+          <label for="photo-files">Photographs</label>
+          <input id="photo-files" type="file" accept="image/jpeg,image/png,image/webp" multiple required>
+          <div class="field-row">
+            <div class="stack"><label for="photo-category">Category</label><select id="photo-category"><option>Portraits</option><option>Weddings</option><option>Events</option><option>Commercial</option><option>Nature</option><option>Videography</option><option>Other</option></select></div>
+            <div class="stack"><label for="publish-now">Publishing</label><select id="publish-now"><option value="true">Publish immediately</option><option value="false">Save as draft</option></select></div>
+          </div>
+          <label for="photo-description">Caption / description (optional)</label>
+          <textarea id="photo-description" rows="2" maxlength="500" placeholder="A short description for this batch"></textarea>
+          <p class="fine-print">Maximum 12 MB per image. Only image files are accepted. Published portfolio images are publicly viewable.</p>
+          <button class="button button-dark" type="submit">Upload selected photos</button>
+          <div id="upload-progress" class="progress hidden" aria-live="polite"></div>
+        </form>
+      </section>
+
+      <section class="library-section">
+        <div class="library-heading"><div><p class="eyebrow">YOUR CONTENT</p><h2>Manage gallery</h2></div><button id="refresh-button" class="button button-light" type="button">Refresh</button></div>
+        <div id="status-message" class="notice hidden" role="status"></div>
+        <div id="photo-grid" class="photo-grid"></div>
+        <p id="empty-state" class="empty-state hidden">No photos yet. Upload your first images above to start building the online portfolio.</p>
+      </section>
+    </section>
+    <footer class="admin-footer">Shuton Photography · Studio administration</footer>
+  </main>
+</body>
+</html>
