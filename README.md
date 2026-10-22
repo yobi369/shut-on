@@ -5,11 +5,11 @@ Photography portfolio built with Node.js, Express and EJS. The admin dashboard u
 ## Admin dashboard
 
 - Route: `/admin`
-- Supports sign-in, multi-image upload, photo listing, publish/unpublish and deletion.
+- Supports sign-in, multi-image upload, photo listing, editing titles/captions/categories/alt text, publish/unpublish and deletion.
 - The public `/gallery` route reads published photos from Supabase when configured and retains legacy images if not configured.
 - JPG, PNG and WebP images are limited to 12 MB each and 30 files per batch in the UI.
 - Row Level Security (RLS) scopes photo records to their owner; storage writes are scoped to the signed-in user's folder.
-- Published portfolio images are publicly viewable by design. Do not upload private client proofs.
+- The storage bucket is public, so uploaded image URLs are publicly retrievable even when a photo is marked as a draft; drafts are hidden from the gallery, not confidential. Do not upload private client proofs.
 
 ## Required setup before use
 
