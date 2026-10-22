@@ -21,10 +21,7 @@ app.use((req, res, next) => {
 
 app.use(express.urlencoded({ extended: false, limit: '32kb' }));
 app.use(express.json({ limit: '32kb' }));
-if (!process.env.VERCEL) {
-  // Vercel serves public/** through its CDN; this filesystem middleware is for local development only.
-  app.use(express.static(path.resolve(process.cwd(), 'public'), { maxAge: isProduction ? '1d' : 0 }));
-}
+// Static assets are served by Vercel's CDN in production and by dev.js locally.
 
 // Public configuration only: the Supabase anon/publishable key is designed to be
 // exposed in browsers. Never put a service-role key or private secret here.
