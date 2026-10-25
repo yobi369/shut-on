@@ -1,266 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Shuton Photography</title>
-    <link rel="stylesheet" href="/main.css">
-    <style>
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        /* Navigation Section */
-        .nav-section {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #fff;
-        }
-
-        .brand-logo {
-            margin-right: 20px;
-        }
-
-        .brand-logo img {
-            width: 110px;
-            height: 80px;
-          }
-
-        .nav-section ul {
-            display: flex;
-            list-style-type: none;
-        }
-
-        .nav-section ul li {
-            margin: 0 20px;
-        }
-
-        .nav-section ul a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .nav-section ul a:hover {
-            color: #ff6600;
-        }
-
-        /* Main Content Section */
-        main {
-            padding: 50px 10%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        main h2 {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        /* Carousel Overlay */
-        .carousel-overlay {
-            margin-top: 50px;
-            text-align: center;
-            color: white;
-        }
-
-        .carousel-overlay h1 {
-            font-size: 48px;
-            font-weight: bold;
-        }
-
-        .carousel-overlay p {
-            font-size: 20px;
-        }
-
-        .carousel-overlay a {
-            background-color: #fff;
-            color: #333;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .carousel-overlay a:hover {
-            background-color: #ff6600;
-            color: white;
-        }
-
-        /* Contact and Map Containers */
-        .contact-map-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-        .contact-container {
-            flex: 1;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-right: 20px; /* Add some spacing between the contact and map */
-        }
-
-        .contact-container h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .contact-container form input, 
-        .contact-container form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .contact-container form input[type="submit"] {
-            background-color: #ff6600;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .contact-container form input[type="submit"]:hover {
-            background-color: #cc5200;
-        }
-
-        /* Map Container */
-        .map-container {
-            flex: 1;
-            text-align: center;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171714">
+  <meta name="description" content="Contact Shuton Photography in Voi, Kenya to discuss wedding, event, portrait and commercial photography.">
+  <title>Contact Shuton Photography | Voi, Kenya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#171714;--paper:#f7f5f0;--muted:#6e6a62;--accent:#c7a46a;--line:#e5e0d6;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(18px,5vw,72px);background:var(--ink);color:white}.brand{display:flex;align-items:center;gap:11px;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.mark{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--accent);border-radius:50%;font:1.25rem var(--serif)}.links{display:flex;align-items:center;gap:clamp(12px,2.5vw,30px);font-size:.82rem}.links a:hover{color:#e4c28b}.links .book{border:1px solid #aaa;padding:8px 12px}.hero{background:var(--ink);color:white;padding:clamp(55px,9vw,115px) clamp(20px,7vw,100px) clamp(65px,9vw,115px)}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.7rem;font-weight:700;color:var(--accent)}h1,h2{font-family:var(--serif);font-weight:500;line-height:1.12;letter-spacing:-.035em}h1{font-size:clamp(2.7rem,7vw,5.8rem);margin:18px 0;max-width:850px}h1 em{color:#e4c28b}.hero p{max-width:590px;color:#d2d0ca;font-size:1rem}.layout{max-width:1180px;margin:auto;padding:65px clamp(20px,6vw,76px) 85px;display:grid;grid-template-columns:1fr .85fr;gap:clamp(28px,6vw,80px)}h2{font-size:clamp(2rem,4vw,3rem);margin:10px 0 15px}.muted{color:var(--muted)}.form-card,.info-card{background:#fff;border:1px solid var(--line);padding:clamp(20px,3vw,34px);min-width:0}.field{display:grid;gap:7px;margin:15px 0}.field label{font-size:.82rem;font-weight:700}.field input,.field textarea,.field select{width:100%;min-width:0;border:1px solid #d6d1c7;background:#fff;padding:13px;font:inherit;border-radius:2px}.field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--accent);outline-offset:1px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;background:var(--accent);color:var(--ink);border:0;font:700 .84rem var(--sans);cursor:pointer}.button:hover{filter:brightness(.96)}.form-card .button{width:100%;margin-top:7px}.hint{font-size:.76rem;color:var(--muted);margin:12px 0 0}.contact-item{padding:18px 0;border-bottom:1px solid var(--line)}.contact-item:last-child{border-bottom:0}.contact-item strong{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#94703d;margin-bottom:5px}.contact-item p{margin:0;color:var(--muted);overflow-wrap:anywhere}.contact-item a{font-weight:600;overflow-wrap:anywhere}.whatsapp{background:#eeece5;padding:25px;margin-top:20px}.whatsapp p{font-size:.88rem;color:var(--muted)}footer{background:var(--ink);color:white;padding:24px clamp(20px,6vw,76px);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;font-size:.78rem}footer span{color:#aaa}@media(max-width:760px){.nav{align-items:flex-start;padding:15px 16px}.links{justify-content:flex-end;flex-wrap:wrap;font-size:.72rem;gap:9px}.links a:not(.book){display:none}.links .book{padding:7px 9px}.layout{grid-template-columns:1fr;padding-top:38px;padding-bottom:55px}.hero{padding-top:55px;padding-bottom:60px}}@media(max-width:380px){.brand{font-size:.65rem;letter-spacing:.06em}.mark{width:34px;height:34px}.links{font-size:.65rem}.hero h1{font-size:2.5rem}}
+  </style>
 </head>
 <body>
-
-    <!-- Header Section with Carousel -->
-    <header class="slider">
-        <div class="slides">
-            <img src="/images/image1.jpg" alt="Image 1" class="slide" />
-            <img src="/images/image2.jpg" alt="Image 2" class="slide" />
-            <img src="/images/image3.jpg" alt="Image 3" class="slide" />
-        </div>
-    </header>
-    <div class="carousel-overlay">
-        <h1 style="color: white;">Welcome to Shuton Photography</h1>
-        <p style="color: white;">We capture life's precious moments</p>
-        <button class="btn btn-light btn-lg mt-3" onclick="location.href='/contact'">Contact Us</button>
-    </div>
-    </header>
-    <!-- Navigation Section -->
-    <nav class="nav-section">
-        <div class="brand-logo">
-            <a href="/"><img src="/images/logo.png" alt="Shuton Photography Logo" /></a>
-        </div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/gallery">Gallery</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/clients">Clients</a></li>
-            <li><a href="/work">Work</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Contact Section -->
-    <main>
-        <div class="contact-map-container">
-            <!-- Contact Form Section -->
-            <section class="contact-container">
-                <h3>Send Us a Message</h3>
-                <form action="#" method="post">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <input type="submit" value="Send Message">
-                </form>
-            </section>
-
-            <!-- Embedded Google Map -->
-            <section class="map-container">
-                <h3>Find Us Here</h3>
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31813.272524049647!2d38.53118094888503!3d-3.4064320274448885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18375ef4c62ab7a7%3A0x25a7dcf24a47652e!2sVoi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1696087756794!5m2!1sen!2sus"
-                    width="600"
-                    height="450"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <section class="section-five">
-            <div class="container">
-                <div class="contact-top">
-                    <h3>CONTACT US</h3>
-                    <p>We would love to hear from you.</p>
-                </div>
-                <div class="contact-middle">
-                    <div>
-                        <span class="contact-icon">
-                            <i class="fas fa-map-signs"></i>
-                        </span>
-                        <span>Address</span>
-                        <p>Opposite - Distar Hotel, Voi</p>
-                    </div>
-
-                    <div>
-                        <span class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </span>
-                        <span>Contact Number</span>
-                        <p>0758926530 / 0722462645 / 0706872810</p>
-                    </div>
-
-                    <div>
-                        <span class="contact-icon">
-                            <i class="fas fa-paper-plane"></i>
-                        </span>
-                        <span>Email Address</span>
-                        <p>shutonphotography@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </footer>
-
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="/" aria-label="Shuton Photography home"><span class="mark">S</span><span>Shuton<br>Photography</span></a>
+    <div class="links"><a href="/">Home</a><a href="/gallery">Gallery</a><a href="/work">Our work</a><a href="/blog">Journal</a><a class="book" href="/contact">Book a session ↗</a></div>
+  </nav>
+  <header class="hero">
+    <div class="eyebrow">Let's make something memorable</div>
+    <h1>Tell us about <em>your moment.</em></h1>
+    <p>Planning a wedding, celebration, portrait session or brand shoot? Share a few details and continue directly with our studio on WhatsApp.</p>
+  </header>
+  <main class="layout">
+    <section class="form-card">
+      <div class="eyebrow">Start a conversation</div><h2>What are you planning?</h2>
+      <p class="muted">Complete this short form. It will open WhatsApp with your message ready to send to the studio.</p>
+      <form id="enquiry-form">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" maxlength="100" required></div>
+        <div class="field"><label for="reply">Your email or phone (optional)</label><input id="reply" name="reply" autocomplete="email" maxlength="150"></div>
+        <div class="field"><label for="service">Photography service</label><select id="service" name="service"><option>Wedding or event</option><option>Portrait or graduation</option><option>Corporate or brand</option><option>Video coverage</option><option>Other enquiry</option></select></div>
+        <div class="field"><label for="date">Event date (optional)</label><input id="date" name="date" type="date"></div>
+        <div class="field"><label for="details">Tell us a little more</label><textarea id="details" name="details" rows="4" maxlength="1500" required placeholder="Location, date, what you need, or any questions…"></textarea></div>
+        <button class="button" type="submit">Continue on WhatsApp ↗</button>
+        <p class="hint">Your message is not submitted until you press Send in WhatsApp.</p>
+      </form>
+    </section>
+    <aside>
+      <section class="info-card">
+        <div class="eyebrow">Studio details</div><h2>We'd love to hear from you.</h2>
+        <div class="contact-item"><strong>Visit</strong><p>Opposite Distar Hotel, Voi, Taita Taveta, Kenya</p></div>
+        <div class="contact-item"><strong>Call the studio</strong><a href="tel:+254758926530">+254 758 926 530</a></div>
+        <div class="contact-item"><strong>Email</strong><a href="mailto:shutonphotography@gmail.com">shutonphotography@gmail.com</a></div>
+        <div class="contact-item"><strong>Service area</strong><p>Voi and surrounding areas in Taita Taveta, Kenya</p></div>
+      </section>
+      <section class="whatsapp"><div class="eyebrow">Quick contact</div><h2>Prefer a quick chat?</h2><p>Contact the studio directly. We'll discuss your plans, availability and the right coverage for your event.</p><a class="button" href="https://wa.me/254758926530?text=Hello%20Shuton%20Photography%2C%20I%27d%20like%20to%20enquire%20about%20a%20shoot." target="_blank" rel="noopener noreferrer">Message on WhatsApp ↗</a></section>
+    </aside>
+  </main>
+  <footer><div>© <span id="year"></span> Shuton Photography</div><span>Stories worth keeping, captured with care.</span><a href="/admin">Studio login ↗</a></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('enquiry-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const value = (id) => document.getElementById(id).value.trim();
+      const parts = [
+        'Hello Shuton Photography, I would like to enquire about a shoot.',
+        'Name: ' + value('name'),
+        value('reply') ? 'Contact: ' + value('reply') : '',
+        'Service: ' + value('service'),
+        value('date') ? 'Event date: ' + value('date') : '',
+        'Details: ' + value('details')
+      ].filter(Boolean);
+      window.open('https://wa.me/254758926530?text=' + encodeURIComponent(parts.join('\n')), '_blank', 'noopener,noreferrer');
+    });
+  </script>
 </body>
 </html>
